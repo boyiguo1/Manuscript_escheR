@@ -58,25 +58,16 @@ The recent technology breakthrough in spatial profiling enables characterizing t
  To optimize \textit{in situ} visualization, we introduce gestalt principles to the design of spatial maps. Gestalt principles \cite{todorovic_2008, palmer_1999} refer to a set of rules describing how humans perceive and interpret visual information and are commonly applied in art and designs. Following gestalt principles, we add additional visual dimensions to spatial maps, leveraging different aesthetics, such as color, fill, and symbols, to simultaneously display disparate variables. Specifically, we apply figure-ground articulation to display two variables: one variable (e.g. expression) can be plotted as color-filled circles, serving as the \textit{figure}; one variable (e.g. spatial domains) can be plotted as the backgrounds of the circles, creating a \textit{ground} for the figure. For adjacent circles with limited space between them to display the background color, we use an economic implementation, colored outlines for these circles, inspired by watercolor effect \cite{pinna_1987, pinna_2001}. Watercolor effect describes the phenomenon in visual perception that surface color arises from thin boundaries and hence is applied here to perceive the background color in tight space. Overall, the figure-ground articulation creates two isolated layers in visual perception to display the two variables while maintaining the relative spatial relationship serving as a reference between the two. In addition, other fundamental principles \cite{todorovic_2008}, such as proximity, similarity, continuity, and closure, incentivize the brain to group elements and dimensions in the visualization, guaranteeing an integrative perception of the complex multi-dimensional spatial map.
  
 
-The main thrust of \coloc is to integrate another dimension of information to the spatial map using color contrast optical illusion. The color contrast optical illusion is a phenomenon where the appearance of a color is influenced by the colors surrounding it. This illusion occurs due to the way our brain processes visual information and perceives color. In a spatial map, we can construct each spatial unit as a hollow point using \texttt{ggplot2::geom\_points} where the boundary of each spatial unit are color-coded to represent one dimension of the information, working for both continuous measures such as gene expression or categorical measures such as spatial domains. It is possible to add another layer of information for an additional variable using symbols or contrast colors on side of each spot. Hence, within each spatial map, multiple layers of information can be displayed jointly.
-
-\coloc is  an open-source package implemented in the R programming environment. The package \coloc is constructed based on \texttt{ggplot2} and can be easily integrated into any spatial visualization pipeline, for example, \texttt{spaitalLIBD} and \texttt{seurat}, that adapts \texttt{ggplot2} principles and would be able to generalize to users in both Bioconductor community and seurat community
- 
- in an interactive process
- 
- We provide an R package called \coloc (named after the graphic artist M.C. Escher) to implement this visual innovation. 
- 
- 
- , following an iterative process that adds layers to a spatial map. Extending \texttt{ggplot2}, \coloc can seamlessly integrate to any established visualizations that is based on the most popular R visualization framework \texttt{ggplot2}, following the same syntax. We apply \coloc to the spatial transcriptomics dataset (Fig. 1G). The results show \fixme{colocalization}.
+To implement the proposed visualization, we leverage the state-of-art data visualization framework \texttt{ggplot2} \cite{ggplot2} following the grammar of graphics \cite{wilkinson_2012}. Specifically, we use an interactive process to layer each variable in spatial maps using different aesthetics. For example, we use the combination of \texttt{color} and \texttt{fill="transparent"} to create the background layer and \texttt{fill} to create the figure layer. When necessary to display an additional layer for a third variable, \texttt{shape} can be used to add symbols such as cross (+) and asterisk (*) to highlight in the spatial map. We provide an open-source package called \coloc (named after the graphic artist M.C. Escher) in the R programming environment \cite{R}, providing a simplified interface to navigate the implementation of the multi-dimensional \textit{in situ} visualization. By adapting \texttt{ggplot2} standard, \coloc can be seamlessly integrated into many popular spatial resolved toolboxes, such as \texttt{SpatialLIBD}\cite{pardo_2022}, \texttt{Seurat}\cite{hao_2021}, \texttt{Giotto} \cite{dries_2021} to name a few, and allow further theme customization with ease. We provide two use cases to examplify some utility of the proposed spatial visualization: 1) the spatially differential gene colocalization in the human dorsolateral prefrontal cortex (DLPFC) using spatial transcriptomics data; 2) multi-dimensional UMAP highlighting differential gene expression in data-driven cell clusters. 
 
 
 
-\section*{Use Case 1: Differential Expression in Spatial Domains}
+\section*{Use Case 1: Spatially Differential Colocalization in DLPFC}
 To demonstrate the new visualization, we apply \coloc to visualize the colocalization of two genes, (FYN) and (EFNA5) in the human dorsolateral prefrontal cortex. The two genes are previously identified that relates to SCZ expression via cell-cell communication analysis. The purpose of the visualization is to see if the density of colocalization are different across different cortex layers. Using \coloc, we can simultaneously display the colocalization and cortex layer in the same spatial plot, instead of having two saprate plots, one for cortex layer and one for colocalization, making the verification of the visual within the spaital context more straightforward and easier. 
 
 To create a colocalization plots, \coloc follows a similar principle as \texttt{ggplot2}'s layering strategy. In the first step, we will use the funciton \texttt{spCOCOON} to create a base plot that converts a spatial transcroptimcs data structure to a plot object. In a second step, we use the function \texttt{add\_fill} to color code each spots with colcalization status, which includes three levels, spots that expressed both genes and spots that expressed either of the genes. Then, we will apply the function \texttt{add\_COCOON} to show the spatial domain (cortex layer) information. Optionally, one can apply the funciton \texttt{add\_symbol} to display another layer of information. Here, we use  the symbol to highlight the colocalization spots, i.e. the spots that expresses both genes. Because we followed the layering strategy that \texttt{ggplot2}. One can seamsely to integrate \coloc to any \texttt{ggplot2}-based spatial visiulization by piping a \texttt{ggplot2} object to \texttt{add\_COCOON} and \texttt{add\_symbol} and customize the plots using the \texttt{ggplot2} syntex and themes, greatly reduce the techinical burden to customize these new spatial plot designs.  
 
-\section*{Use Case 2: Multi-dimensional UMAP Plot}
+\section*{Use Case 2: Multi-dimensional UMAP}
 
 
 \section*{Summary}
@@ -93,13 +84,13 @@ translating the findings in vision science to dat science to address many of the
 
 %% EPILOGUE ================================================================
 \section*{Acknowledgements}
-B.G. would like to acknowledge Dr. Leonardo Collado Torres,  and Louise Huuki-Myers for their helpful feedback.
+B.G. would like to acknowledge Dr. Leonardo Collado Torres, Louise Huuki-Myers and Leon Di Stefano for their helpful feedback.
 
 \vspace{0.2in}
 \noindent \textit{Conflict of Interest:} none declared.
 
 \section*{Data availability}
-The spatial transcriptomics dataset was obtained from \texttt{spatialLIBD}(\url{http://research.libd.org/spatialLIBD/}). The code that generates these figures are deposited at \fixme{github manuscript repo}.
+The spatial transcriptomics dataset was obtained from \texttt{spatialLIBD} (\url{http://research.libd.org/spatialLIBD/}). The UMAP example follows the tutorial from \texttt{schex} (\url{https://www.bioconductor.org/packages/release/bioc/vignettes/schex/inst/doc/using_schex.html}). The code that generates these figures are deposited at \fixme{github manuscript repo}.
 
 \clearpage
 % \vspace{-0.1in}
