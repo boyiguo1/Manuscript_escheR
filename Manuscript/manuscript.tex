@@ -61,7 +61,7 @@
 The creation of effective visualizations is a fundamental component of data analysis. In biomedical research, new challenges are emerging to visualize multi-dimensional data in a 2D space, but current data visualization tools have limited capabilities. To address this problem, we leverage Gestalt principles to improve the design and interpretability of multi-dimensional data in 2D data visualizations, layering aesthetics to display multiple variables. The proposed visualization can be applied to spatially-resolved transcriptomics data, but also broadly to data visualized in 2D space, such as embedding visualizations. We provide an open source R package \texttt{escheR}, which is built off of the state-of-the-art \texttt{ggplot2} visualization framework and can be seamlessly integrated into genomics toolboxes and workflows.
 
 \subsection*{Availability and implementation}
-The open source R package \texttt{escheR} is freely available on GitHub and is being submitted to Bioconductor (\href{https://github.com/boyiguo1/escheR}{https://github.com/boyiguo1/escheR}).
+The open source R package \texttt{escheR} is freely available on Bioconductor (\href{https://bioconductor.org/packages/escheR}{bioconductor.org/packages/escheR}).
 % and Zenodo (\fixme{add link}).
 
 
@@ -95,7 +95,7 @@ Here, we leverage the principles to be able to visualize multi-dimensional data 
 
 For adjacent circles with limited space between them to display the background color, we use an economic implementation, colored outlines for these circles (\textbf{Figure~\ref{fig:visual}C}), inspired by watercolor effect \cite{pinna_1987, pinna_2001}. Watercolor effect describes the phenomenon in visual perception that surface color arises from thin boundaries and hence is applied here to perceive the background color in tight space. Overall, the figure-ground segmentation creates two isolated layers in visual perception to display the two variables while maintaining the relative spatial relationship serving as a reference between the two. In addition, other fundamental principles \cite{todorovic_2008}, such as proximity, similarity, continuity, and closure, incentivize the brain to group elements and dimensions in the visualization, guaranteeing an integrative perception of the complex multi-dimensional spatial map.
 
-Here, we provide an open-source package called \texttt{escheR} (named after the graphic artist M.C. Escher) in the R programming language \cite{R}, leading to a simplified interface to navigate the implementation of the multi-dimensional visualization in 2D space. By adapting \texttt{ggplot2} standard, \texttt{escheR} can be seamlessly integrated into many popular spatial resolved toolboxes, such as \texttt{SpatialLIBD}\cite{pardo_2022}, \texttt{Seurat}\cite{hao_2021}, \texttt{Giotto}\cite{dries_2021} to name a few, and allow further theme customization with ease.
+Here, we provide an open-source package called \texttt{escheR} (named after the graphic artist M.C. Escher) in the R programming language \cite{R}, leading to a simplified interface to navigate the implementation of the multi-dimensional visualization in 2D space. By adapting \texttt{ggplot2} standard, \texttt{escheR} can be seamlessly integrated into many popular spatial resolved toolboxes, such as \texttt{SpatialLIBD }\cite{pardo_2022}, \texttt{Seurat} \cite{hao_2021}, \texttt{Giotto} \cite{dries_2021} to name a few, and allow further theme customization with ease.
 
 Next, we give two use cases to exemplify some utility of the proposed spatial visualization: (i) the spatially differential gene colocalization in the human dorsolateral prefrontal cortex (DLPFC) using spatial transcriptomics data \cite{huukimyers_2023}; (ii) multi-dimensional UMAP highlighting differential gene expression in data-driven cell clusters \cite{freytag_2020}. 
 
@@ -155,14 +155,14 @@ Not applicable.
 The authors declare that they have no competing interests.
 
 \subsection*{Availability of data and materials}
-The spatial transcriptomics dataset was obtained from \texttt{spatialLIBD} (\href{http://research.libd.org/spatialLIBD}{research.libd.org/spatialLIBD}). The UMAP example follows the `using\_schex' vignette in the \texttt{schex} package (\href{https://www.bioconductor.org/packages/schex}{bioconductor.org/packages/schex}). The code that generates these figures is deposited at \href{https://github.com/boyiguo1/Manuscript_escheR}{github.com/boyiguo1/Manuscript\_escheR} (\textit{v1.0}).
+The spatial transcriptomics dataset was obtained from \texttt{spatialLIBD} (\href{http://research.libd.org/spatialLIBD}{research.libd.org/spatialLIBD}). The UMAP example follows the `using\_schex' vignette in the \texttt{schex} package (\href{https://www.bioconductor.org/packages/schex}{bioconductor.org/packages/schex}). The code that generates these figures is deposited at \href{https://github.com/boyiguo1/Manuscript_escheR}{github.com/boyiguo1/Manuscript\_escheR} (Zenodo DOI: \href{https://zenodo.org/record/7915970}{10.5281/zenodo.7915970}). The open source software package \texttt{escheR} available in the R programming language is freely available on GitHub (\href{https://github.com/boyiguo1/escheR}{github.com/boyiguo1/escheR}) and Bioconductor (\href{https://bioconductor.org/packages/escheR}{bioconductor.org/packages/escheR}).
 
 
 \subsection*{Funding}
 This project was supported by the National Institute of Mental Health R01MH126393 (BG, SCH), and CZF2019-002443 (SCH) from the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation. All funding bodies had no role in the design of the study and collection, analysis, and interpretation of data and in writing the manuscript.
 
 \subsection*{Acknowledgements}
-BG would like to acknowledge Nicholas J. Eagles, Kristen R. Maynard, Mina Ryten, Leon Di Stefano, and Lukas M. Weber (appearing in alphabetic order of last name) for their helpful comments, feedback and suggestions on \texttt{escheR} functionality. Nicholas J. Eagles and Kristen R. Maynard are employed by the Lieber Institute for Brain Development; Mina Ryten is employed by University College London; Leon Di Stefano and Lukas M. Weber are from the Johns Hopkins Bloomberg School of Public Health, Department of Biostatistics. 
+We would like to acknowledge Nicholas J. Eagles, Kristen R. Maynard, Mina Ryten, Leon Di Stefano, and Lukas M. Weber (appearing in alphabetic order of last name) for their helpful comments, feedback and suggestions on \texttt{escheR} functionality. Nicholas J. Eagles and Kristen R. Maynard are employed by the Lieber Institute for Brain Development; Mina Ryten is employed by University College London; Leon Di Stefano and Lukas M. Weber are from the Johns Hopkins Bloomberg School of Public Health, Department of Biostatistics. 
 
 
 \subsection*{Author’s information}
