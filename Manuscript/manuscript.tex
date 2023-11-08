@@ -41,9 +41,9 @@
 %\setmainfont{Helvetica}
 \title{\texttt{escheR}: Unified multi-dimensional visualizations with Gestalt principles}
 \author[1]{Boyi Guo}
-\author[2]{\rr{Louise A. Huuki-Myers}}
-\author[3,4]{\rr{Melissa Grant-Peters}}
-\author[2]{\rr{Leonardo Collado-Torres}}
+\author[2]{Louise A. Huuki-Myers}
+\author[3,4]{Melissa Grant-Peters}
+\author[2]{Leonardo Collado-Torres}
 \author[1,5,6,7]{Stephanie C. Hicks\thanks{Correspondence to \url{shicks19@jhu.edu}}}
 \affil[1]{Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health, MD, USA} 
 \affil[2]{Lieber Institute for Brain Development, Johns Hopkins Medical Campus, Baltimore, MD, USA}
@@ -65,7 +65,7 @@
 The creation of effective visualizations is a fundamental component of data analysis. In biomedical research, new challenges are emerging to visualize multi-dimensional data in a 2D space, but current data visualization tools have limited capabilities. To address this problem, we leverage Gestalt principles to improve the design and interpretability of multi-dimensional data in 2D data visualizations, layering aesthetics to display multiple variables. The proposed visualization can be applied to spatially-resolved transcriptomics data, but also broadly to data visualized in 2D space, such as embedding visualizations. We provide an open source R package \texttt{escheR}, which is built off of the state-of-the-art \texttt{ggplot2} visualization framework and can be seamlessly integrated into genomics toolboxes and workflows.
 
 \subsection*{Availability and implementation}
-The open source R package \texttt{escheR} is freely available on \rr{Bioconductor (\href{https://bioconductor.org/packages/escheR}{bioconductor.org/packages/escheR}).}
+The open source R package \texttt{escheR} is freely available on Bioconductor (\href{https://bioconductor.org/packages/escheR}{bioconductor.org/packages/escheR}).
 % and Zenodo (\fixme{add link}).
 
 
@@ -87,6 +87,7 @@ A common and fundamental challenge with both of these visualizations is how to v
 \caption{\small \textbf{\texttt{escheR} enables multi-dimensional spatial visualizations following the Gestalt principles of design}. (\textbf{A-B}) The traditional visualization displays the colocalization plot of the expression of two genes \textit{EFNA5} and \textit{EPHA5} (\textbf{A}) and the spatial domains from the dorsolateral prefrontal cortex in postmorteum human brain \cite{huukimyers_2023} (\textbf{B}) side-by-side, creating challenges to cognitively connecting colocalization status to spatial domains. (\textbf{C}) The watercolor effect enables displaying spatial domains by color-coding only outlines of circles. (\textbf{D}) \texttt{escheR} enables the multi-dimensional \textit{in situ} visualization that simultaneously displays the cortex layers and the colocalization status, substantially improving interpretability.}
 \label{fig:visual} 
 \end{center}
+\vspace{-0.3in}
 \end{figure*}
 
 % \vspace{-0.2in}
@@ -104,7 +105,16 @@ Here, we leverage the principles to be able to visualize multi-dimensional data 
 
 For adjacent circles with limited space between them to display the background color, we use an economic implementation, colored outlines for these circles (\textbf{Figure~\ref{fig:visual}C}), inspired by watercolor effect \cite{pinna_1987, pinna_2001}. Watercolor effect describes the phenomenon in visual perception that surface color arises from thin boundaries and hence is applied here to perceive the background color in tight space. Overall, the figure-ground segmentation creates two isolated layers in visual perception to display the two variables while maintaining the relative spatial relationship serving as a reference between the two. In addition, other fundamental principles \cite{todorovic_2008}, such as proximity, similarity, continuity, and closure, incentivize the brain to group elements and dimensions in the visualization, guaranteeing an integrative perception of the complex multi-dimensional spatial map.
 
-Here, we provide an open-source package called \texttt{escheR} (named after the graphic artist M.C. Escher) in the R programming language \cite{R}, leading to a simplified interface to navigate the implementation of the multi-dimensional visualization in 2D space. By adapting \texttt{ggplot2} standard, \texttt{escheR} can be seamlessly integrated with \rr{popular data objects, including \texttt{SingleCellExperiment} \cite{amezquita2020} and \texttt{SpatialExperiment} \cite{righelli2022}, and easily work with popular pipelines, such as} \texttt{Seurat} \cite{hao_2021}, \texttt{Giotto} \cite{dries_2021} to name a few, and allow further theme customization with ease.
+\begin{figure*}[t]
+\begin{center}
+\includegraphics[width=\textwidth]{Manuscript/figure/embedding.jpg}
+\caption{\small \textbf{\texttt{escheR} improves multi-dimensional embedding visualizations}. The gene expression of \textit{POMGNT1} among peripheral blood mononuclear cells \cite{PBMC} under the UMAP representation. (\textbf{A}) The \texttt{schex} R/Bioconductor package uses color-coded convex hulls to annotate data-driven cell types, creating confusion when interpreting hexagons in overlapping hulls. (\textbf{B}) \texttt{escheR} plots hexagon-specific membership to avoid substantial overlapping of cluster membership. Due to the binning strategy, cautions in interpretation are needed due to possible cluster intermixing within each hexagon.} 
+\label{fig:embedding} 
+\end{center}
+\vspace{-0.3in}
+\end{figure*}
+
+Here, we provide an open-source package called \texttt{escheR} (named after the graphic artist M.C. Escher) in the R programming language \cite{R}, leading to a simplified interface to navigate the implementation of the multi-dimensional visualization in 2D space. By adapting \texttt{ggplot2} standard, \texttt{escheR} can be seamlessly integrated with popular data objects, including \texttt{SingleCellExperiment} \cite{amezquita2020} and \texttt{SpatialExperiment} \cite{righelli2022}, and easily work with popular pipelines, such as \texttt{Seurat} \cite{hao_2021}, \texttt{Giotto} \cite{dries_2021} to name a few, and allow further theme customization with ease.
 
 Next, we give two use cases to exemplify some utility of the proposed spatial visualization: (i) the spatially differential gene colocalization in the human dorsolateral prefrontal cortex using spatial transcriptomics data \cite{huukimyers_2023}; (ii) multi-dimensional UMAP highlighting differential gene expression in data-driven cell clusters \cite{freytag_2020}. 
 
@@ -119,21 +129,28 @@ The application of the proposed framework is not limited to \textit{in situ} vis
 \section{Discussion}
 Here, we propose an innovative multi-dimensional spatial visualization that simultaneously displays multiple variables in a 2D coordinate system. Specifically, our design leverages Gestalt principles from visual perception to create multiple visual dimensions in a spatial map by iterative layering aesthetics. Built upon \texttt{ggplot2}, we provide an open-source R package \texttt{escheR} that is seamlessly compatible with popular spatially-resolved transcriptomics and single-cell data analysis toolboxes. 
 
-Adding a third dimension to 2D plots has been a long-standing challenge in visualization \cite{odonoghue_2010}. Our proposal addresses this fundamental challenge by introducing simple but effective design principles. \rr{These principles lead to visually easier-to-interpret graphics compared to 2D-color gradients and geometry annotations (\textbf{Figure~\ref{fig:embedding}}).} Unlike computer-based interactive visualizations, the proposed visualization is free from any platform and technology restriction, creating an accessible and economical solution. In addition, the proposed visualization is easily scalable and hence can be applied to all types of spatially resolved data. 
+Adding a third dimension to 2D plots has been a long-standing challenge in visualization \cite{odonoghue_2010}. Our proposal addresses this fundamental challenge by introducing simple but effective design principles. These principles lead to visually easier-to-interpret graphics compared to 2D-color gradients and geometry annotations (\textbf{Figure~\ref{fig:embedding}}). Unlike computer-based interactive visualizations, the proposed visualization is free from any platform and technology restriction, creating an accessible and economical solution. In addition, the proposed visualization is easily scalable and hence can be applied to all types of spatially resolved data. 
 
 Beyond the scope of biomedical research, the proposed visualization can be broadly translated to any visual analytic highlighting differentiation with respect to another measurement(s). To name a few, such visual analytics include examining differential tests,  explaining clustering, and visualizing subgroups. However, one of the most rewarding fields to apply the proposed visualization is the rapidly expanding field of biomedical multi-omics research \cite{hasin_2017}, where connecting different omics (data modalities) is the fundamental goal and hence greatly appreciating innovative multi-dimensional visualization. 
 
-\rr{
 While the proposed design principle set-up a solid foundation, the proposed package \texttt{escheR} can be further optimized for image-based spatially resolved data \cite{caicedo_2017}. For example, to address possible overplotting of densely arranged single cells in tight space, strategies such as binning or hatching plots \cite{patrick2023spatial} can be incorporated. In addition, the flexibility to represent data points as polygons will be provided to allow visualization of cell morphology.
 % Combining with a binning strategy, similar to \texttt{schex} \cite{freytag_2020} to avoid possible overplotting \rr{or hatching plot proposed in \texttt{lisaClust} \cite{patrick2023spatial}}, the proposed visualization can be also applied to visualized image-based spatially resolved data , in addition to aforementioned spot-based spatially resolved data (\textbf{Figure~\ref{fig:visual}}).  \rr{\texttt{escheR} could also be applied with kernel gene-weighted density plots from \texttt{Nebulosa} \cite{alquicirahernandez_2021} and other ggplot2-based visualizations.}
 % \rr{Independently, \texttt{lisaClust} \cite{patrick2023spatial} visualize cell types within spatial domains by generating hatching plots for immunofluorescence and mass cytometry imaging data.} 
-}
-
 
 In summary, we propose a novel multi-dimensional visualization, implemented in an R package \texttt{escheR}, to address the simultaneous exhibition of multiple variables in 2D plots. The proposed visualization can be broadly applicable to the visual analytics of growingly complex biomedical data and beyond.
 
 
 
+
+
+
+%% BIBLIOGRAPHY ==========================================================
+
+% \printbibliography
+\bibliography{refs}
+
+
+\clearpage
 %% EPILOGUE ================================================================
 \section*{Abbreviations}
 
@@ -153,7 +170,6 @@ In summary, we propose a novel multi-dimensional visualization, implemented in a
 
 \begin{itemize}[nosep]
     \item \textbf{Boyi Guo}:  Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data Curation, Writing, Visualization
-    \item \textbf{Erik D. Nelson}: Conceptualization, Software, Writing, Visualization
     \item \textbf{Louise A. Huuki-Myers}: Conceptualization, Software
     \item \textbf{Melissa Grant-Peters}: Conceptualization
     \item \textbf{Leonardo Collado-Torres}: Conceptualization, Software
@@ -192,70 +208,54 @@ We would like to acknowledge Nicholas J. Eagles, Kristen R. Maynard, Mina Ryten,
 
 \subsection*{Conflict of Interest} 
 None declared.
+% \onecolumn
+
+% {\huge Supplementary Materials}
+
+% \hrule
+
+% \vspace*{0.5cm}
+
+% \begin{center}
+
+% {\Large \texttt{escheR}: Unified multi-dimensional visualizations with Gestalt principles}
+
+% \vspace*{0.75cm}
+
+% {\large Boyi Guo, Louise A. Huuki-Myers, Melissa Grant-Peters, Leonardo Collado-Torres, Stephanie C.\ Hicks$^*$}
+
+% \vspace*{0.3cm}
+
+% {\small $^*$Correspondence to \url{shicks19@jhu.edu}}
+
+% \end{center}
+
+% \renewcommand{\figurename}{Supplementary Figure}
+% \renewcommand{\tablename}{Supplementary Table}
+% \setcounter{figure}{0}
+% \setcounter{table}{0}
+% \setcounter{section}{0}
+% \setcounter{page}{1}
+% \makeatletter
+% \renewcommand{\thefigure}{S\@arabic\c@figure}
+% \renewcommand{\thetable}{S\@arabic\c@table}
+% \renewcommand{\thesection}{Supplemental Note S\@arabic\c@section}
+% \makeatother
+
+% \vspace*{1cm}
+
+% {\bf \large Contents}
+
+% % \begin{enumerate}
+%     \item \textbf{Supplemental Figures~S1.}
+% \end{enumerate}
+
+% \clearpage 
+
+% \noindent {\LARGE Supplemental Figures}
 
 
-%% BIBLIOGRAPHY ==========================================================
 
-\clearpage 
-% \printbibliography
-\bibliography{refs}
-
-
-\clearpage
-\onecolumn
-
-{\huge Supplementary Materials}
-
-\hrule
-
-\vspace*{0.5cm}
-
-\begin{center}
-
-{\Large \texttt{escheR}: Unified multi-dimensional visualizations with Gestalt principles}
-
-\vspace*{0.75cm}
-
-{\large Boyi Guo, Louise A. Huuki-Myers, Melissa Grant-Peters, Leonardo Collado-Torres, Stephanie C.\ Hicks$^*$}
-
-\vspace*{0.3cm}
-
-{\small $^*$Correspondence to \url{shicks19@jhu.edu}}
-
-\end{center}
-
-\renewcommand{\figurename}{Supplementary Figure}
-\renewcommand{\tablename}{Supplementary Table}
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\setcounter{section}{0}
-\setcounter{page}{1}
-\makeatletter
-\renewcommand{\thefigure}{S\@arabic\c@figure}
-\renewcommand{\thetable}{S\@arabic\c@table}
-\renewcommand{\thesection}{Supplemental Note S\@arabic\c@section}
-\makeatother
-
-\vspace*{1cm}
-
-{\bf \large Contents}
-
-\begin{enumerate}
-    \item \textbf{Supplemental Figures~S1.}
-\end{enumerate}
-
-\clearpage 
-
-\noindent {\LARGE Supplemental Figures}
-
-
-\begin{figure*}[!h]
-\begin{center}
-\includegraphics[width=\textwidth]{Manuscript/figure/embedding.jpg}
-\caption{\small \textbf{\texttt{escheR} \rr{improves} multi-dimensional embedding visualizations}. The gene expression of \textit{POMGNT1} among peripheral blood mononuclear cells \cite{PBMC} under the UMAP representation. (\textbf{A}) The \texttt{schex} R/Bioconductor package uses color-coded convex hulls to annotate data-driven cell types, creating confusion when interpreting hexagons in overlapping hulls. (\textbf{B}) \texttt{escheR} plots hexagon-specific membership to avoid substantial overlapping of cluster membership. \rr{Due to the binning strategy, cautions in interpretation are needed due to possible cluster intermixing within each hexagon.} }
-\label{fig:embedding} 
-\end{center}
-\end{figure*}
 
 
 \end{document}
