@@ -142,7 +142,7 @@ p_fig2 <- ggpubr::ggarrange(
 )
 
 
-ggsave("figs/escher_UMAP.tiff", p_fig2,
+ggsave("Manuscript/figure/embedding.tiff", p_fig2,
        height = 8,
        width = 12)
 
