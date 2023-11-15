@@ -10,4 +10,3 @@ source("R/01-srt_coloc_plot.R")    # Plots in Figure 1
 source("R/02_multi_d_umap.R")      # Plots in Figure 2
 ```
 
-The R packages are version controlled using [`renv`](https://rstudio.github.io/renv/articles/renv.html).
