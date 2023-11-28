@@ -36,7 +36,6 @@
 %\documentclass[unnumsec,namedate,webpdf,traditional,medium]{oup-authoring-template}
 %\documentclass[namedate,webpdf,traditional,small]{oup-authoring-template}
 
-\onecolumn % for one column layouts
 
 %\usepackage{showframe}
 
@@ -44,8 +43,8 @@
 
 % line numbers
 % \usepackage[mathlines, switch]{lineno}
-\usepackage[right]{lineno}
-\linenumbers
+% \usepackage[right]{lineno}
+% \linenumbers
 
 \theoremstyle{thmstyleone}%
 \newtheorem{theorem}{Theorem}%  meant for continuous numbers
@@ -59,8 +58,6 @@
 \theoremstyle{thmstylethree}%
 \newtheorem{definition}{Definition}
 
-\usepackage{setspace}
-\doublespacing
 
 \begin{document}
 
@@ -143,7 +140,7 @@ and \textit{in situ} spatially-resolved transcriptomics. \citep{vandereyken2023m
 % 
 % \vspace{-0.15in}
 
-A common and fundamental challenge with both of these visualizations is how to visualize multi-dimensional information in a 2D space. For example, in \textit{in situ} visualizations, we often want to create a spatial map to visualize a continuous (e.g. gene expression) or discrete (e.g. cell type or spatial domain) variable representing molecular information in the original spatial location. However, it is challenging to simultaneously visualize multi-dimensional data, such as information from disparate data domains (such as expression domain and spatial domain) or disparate data modalities (such as transcriptomics and proteomics) in the same plot. Currently, best practices for this include making two different plots displayed side-by-side (\textbf{Figure \textbf{\ref{fig:visual}A-B}}), one for gene expression and one for spatial domains. This creates cognitive gaps on how to associate the disparate information or how to interpret the biological findings of this multi-dimensional information regarding their microenvironment or colocalization. While interactive visualizations \citep{keller_2021, pardo_2022, sriworarat_2023} have the potential to mitigate this challenge, they are infeasible for scientific communications in static media, such as printed work. Developing a static and unified visualization that enables the simultaneous display of multiple dimensions of information is crucial for biomedical research.
+A common and fundamental challenge with both of these visualizations is how to visualize multi-dimensional information in a 2D space. For example, in \textit{in situ} visualizations, we often want to create a spatial map to visualize a continuous (e.g. gene expression) or discrete (e.g. cell type or spatial domain) variable representing molecular information in the original spatial location. However, it is challenging to simultaneously visualize multi-dimensional data, such as information from disparate data domains (such as expression domain and spatial domain) or disparate data modalities (such as transcriptomics and proteomics) in the same plot. Currently, best practices for this include making two different plots displayed side-by-side (\textbf{Figure \textbf{\ref{fig:visual}A-B}}), one for gene expression and one for spatial domains. This creates cognitive gaps on how to associate the disparate information or how to interpret the biological findings of this multi-dimensional information regarding their microenvironment or colocalization. While interactive visualizations \citep{pardo_2022, sriworarat_2023} have the potential to mitigate this challenge, they are infeasible for scientific communications in static media, such as printed work. Developing a static and unified visualization that enables the simultaneous display of multiple dimensions of information is crucial for biomedical research.
 
 \begin{figure*}[!t]
 \begin{center}
@@ -217,13 +214,9 @@ No competing interest is declared.
 \section{Acknowledgments}
 The authors thank the anonymous reviewers for their valuable suggestions. This project was supported by the National Institute of Mental Health [R01MH126393 to BG and SCH, U01MH122849 to LAHM and LCT]; the Chan Zuckerberg Initiative DAF, an advised fund of Silicon Valley Community Foundation [CZF2019-002443 to SCH]; the Lieber Institute for Brain Development to LAHM and LCT; and Aligning Science Across Parkinson’s [ASAP-000478, ASAP-000509 to MGP] through the Michael J. Fox Foundation for Parkinson’s Research.  All funding bodies had no role in the design of the study and collection, analysis, and interpretation of data and in writing the manuscript. We also would like to acknowledge Nicholas J. Eagles, Kristen R. Maynard, Mina Ryten, Leon Di Stefano, and Lukas M. Weber (appearing in alphabetic order of last name) for their helpful comments, feedback and suggestions on \texttt{escheR} functionality. Nicholas J. Eagles and Kristen R. Maynard are employed by the Lieber Institute for Brain Development; Mina Ryten is employed by University College London; Leon Di Stefano is from the Johns Hopkins Bloomberg School of Public Health, Department of Biostatistics; Lukas M. Weber is in the Department of Biostatistics at Boston University School of Public Health.  
 
-
-% \bibliographystyle{plain}
-% \bibliography{refs}
-
-
 %USE THE BELOW OPTIONS IN CASE YOU NEED AUTHOR YEAR FORMAT.
-\bibliographystyle{abbrvnat}
+% \bibliographystyle{bioinformatics}
+\bibliographystyle{apalike2}
 \bibliography{refs}
 
 \end{document}
